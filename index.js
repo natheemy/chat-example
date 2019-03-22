@@ -13,6 +13,12 @@ io.on('connection', function(socket){
   });
 });
 
+io.on('connection', function(socket){
+  socket.on('wakeup', function(msg){
+    io.emit('wakeup', msg);
+  });
+});
+
 http.listen(port, function(){
   console.log('listening on *:' + port);
 });
